@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>My Perfect Resume – AI Powered Builder</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <div id="landingPage" class="landing-page active-section">
+    
+    <div class="landing-header">
+      <div class="landing-header-content">
+        <div class="logo" onclick="goHome()">my<span class="red">perfect</span>CV</div>
+        <button class="get-started-btn" onclick="startBuilder()">Get Started</button>
+      </div>
+    </div>
+
+    <section class="hero-section">
+      <div class="decorative-line"></div>
+      
+      <h1 class="hero-title">
+        Get dream jobs with<br>
+        our <span class="ai-powered">AI Powered</span> CV<br>
+        builder
+      </h1>
+
+      <p class="hero-subtitle">
+        Build a professional and outstanding CV with our free builder and templates.
+      </p>
+
+      <button class="cta-button" onclick="startBuilder()">
+        Create my CV
+      </button>
+    </section>
+
+    <section class="examples-section">
+      <div class="examples-grid">
+  
+        <div class="cv-card" onclick="openImageModal('./Assets/CVSample1.jpg')">
+          <div class="cv-preview template-1">
+            <img src="./Assets/CVSample1.jpg" alt="CV Sample 1">
+          </div>
+        </div>
+
+        <div class="cv-card" onclick="openImageModal('./Assets/CVSample2.jpg')">
+          <div class="cv-preview template-2">
+            <img src="./Assets/CVSample2.jpg" alt="CV Sample 2">
+          </div>
+        </div>
+
+        <div class="cv-card" onclick="openImageModal('./Assets/CVSample3.jpg')">
+          <div class="cv-preview template-3">
+            <img src="./Assets/CVSample3.jpg" alt="CV Sample 3">
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+
+  <div id="builderPage" class="builder-page">
+
+    <div class="header">
+      <div class="header-content">
+        <span class="logo-clickable" onclick="goHome()">my<span class="red">perfect</span>CV</span>
+      </div>
+    </div>
+
+    <div class="progress-container">
+      <div id="progressBar" class="progress-bar"></div>
+    </div>
+
+    <div class="wizard-container">
+
+      <div class="actions-row">
+        <button id="clearDataBtn" class="btn-clear">Clear CV Data Entered</button>
+      </div>
+      
+      <section class="page active" id="page1">
+        <h2 class="section-title">Personal Information</h2>
+        <p class="question-subtitle">Fill in your basic personal details.</p>
+
+        <div class="form-group">
+          <label>Full Name *</label>
+          <input id="fullName" type="text" placeholder="e.g., Adam Johnson">
+          <div class="error"></div>
+        </div>
+
+        <div class="form-group">
+          <label>Phone *</label>
+          <input id="phone" type="tel" placeholder="e.g., +20 101 234 5678">
+          <div class="error"></div>
+        </div>
+
+        <div class="form-group">
+          <label>Email *</label>
+          <input id="email" type="email" placeholder="e.g., adam.johnson@mail.com">
+          <div class="error"></div>
+        </div>
+
+        <div class="form-group">
+          <label>City / Location *</label>
+          <input id="city" type="text" placeholder="e.g., Cairo, Egypt">
+          <div class="error"></div>
+        </div>
+
+        <button class="btn-primary next" data-next="page2">Next →</button>
+      </section>
+
+      <section class="page" id="page2">
+        <h2 class="section-title">Career Information</h2>
+        <p class="question-subtitle">Tell recruiters your direction and experience.</p>
+
+        <div class="form-group">
+          <label>Career Objective *</label>
+          <input id="careerObjective" type="text" placeholder="e.g., Software Engineer, Marketing Manager, Data Analyst">
+          <div class="error"></div>
+        </div>
+
+        <div class="form-group">
+          <label>Professional Summary *</label>
+          <textarea id="professionalSummary" placeholder="3–5 sentences about your experience (30+ chars)"></textarea>
+          <div class="error"></div>
+        </div>
+
+        <button class="btn-primary back" data-back="page1">← Back</button>
+        <button class="btn-primary next" data-next="page3">Next →</button>
+      </section>
+
+      <section class="page" id="page3">
+        <h2 class="section-title">Online Presence</h2>
+        <p class="question-subtitle">Add your professional links (optional).</p>
+
+        <div class="form-group">
+          <label>LinkedIn (optional)</label>
+          <input id="linkedin" type="url" placeholder="https://www.linkedin.com/in/yourprofile">
+          <div class="error"></div>
+        </div>
+
+        <div class="form-group">
+          <label>Portfolio / Website (optional)</label>
+          <input id="portfolio" type="url" placeholder="https://yourportfolio.com">
+          <div class="error"></div>
+        </div>
+
+        <button class="btn-primary back" data-back="page2">← Back</button>
+        <button class="btn-primary next" data-next="page4">Next →</button>
+      </section>
+
+      <section class="page" id="page4">
+        <h2 class="section-title">Education</h2>
+        <p class="question-subtitle">Tell us about your educational background.</p>
+
+        <div class="form-group">
+          <label>University *</label>
+          <input id="university" type="text" placeholder="e.g., Cairo University">
+          <div class="error"></div>
+        </div>
+
+        <div class="form-group">
+          <label>University Location</label>
+          <input id="universityLocation" type="text" placeholder="e.g., Cairo, Egypt">
+        </div>
+
+        <div class="form-group">
+          <label>Degree / Major *</label>
+          <input id="degree" type="text" placeholder="e.g., BSc Computer Science">
+          <div class="error"></div>
+        </div>
+
+        <div class="form-group">
+          <label>Start Date</label>
+          <div class="date-picker-row">
+            <select id="eduStartMonth" class="month-select">
+              <option value="">Month</option>
+              <option value="January">January</option>
+              <option value="February">February</option>
+              <option value="March">March</option>
+              <option value="April">April</option>
+              <option value="May">May</option>
+              <option value="June">June</option>
+              <option value="July">July</option>
+              <option value="August">August</option>
+              <option value="September">September</option>
+              <option value="October">October</option>
+              <option value="November">November</option>
+              <option value="December">December</option>
+            </select>
+            <select id="eduStartYear" class="year-select">
+              <option value="">Year</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>End Date (or Expected)</label>
+          <div class="date-picker-row">
+            <select id="eduEndMonth" class="month-select">
+              <option value="">Month</option>
+              <option value="January">January</option>
+              <option value="February">February</option>
+              <option value="March">March</option>
+              <option value="April">April</option>
+              <option value="May">May</option>
+              <option value="June">June</option>
+              <option value="July">July</option>
+              <option value="August">August</option>
+              <option value="September">September</option>
+              <option value="October">October</option>
+              <option value="November">November</option>
+              <option value="December">December</option>
+            </select>
+            <select id="eduEndYear" class="year-select">
+              <option value="">Year</option>
+              <option value="Present">Present</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>GPA *</label>
+          <input id="gpa" type="text" placeholder="e.g., 3.75">
+          <div class="error"></div>
+        </div>
+
+        <div class="form-group">
+          <label>Certificates (optional)</label>
+          <textarea id="certificates" placeholder="List any certificates you have"></textarea>
+        </div>
+
+        <button class="btn-primary back" data-back="page3">← Back</button>
+        <button class="btn-primary next" data-next="page5">Next →</button>
+      </section>
+
+      <section class="page" id="page5">
+        <h2 class="section-title">Work Experience</h2>
+        <p class="question-subtitle">Add your previous job positions.</p>
+
+        <div id="workContainer"></div>
+        <div class="error" id="workError"></div>
+
+        <button id="addWork" class="btn-secondary">+ Add Position</button>
+        <br><br>
+
+        <button class="btn-primary back" data-back="page4">← Back</button>
+        <button class="btn-primary next" data-next="page6">Next →</button>
+      </section>
+
+      <section class="page" id="page6">
+        <h2 class="section-title">Projects</h2>
+        <p class="question-subtitle">Add your projects.</p>
+
+        <div id="projectsContainer"></div>
+        <div class="error" id="projectsError"></div>
+
+        <button id="addProject" class="btn-secondary">+ Add Project</button>
+        <br><br>
+
+        <button class="btn-primary back" data-back="page5">← Back</button>
+        <button class="btn-primary next" data-next="page7">Next →</button>
+      </section>
+
+      <section class="page" id="page7">
+        <h2 class="section-title">Technical Skills</h2>
+        <p class="question-subtitle">Add your technical skills.</p>
+
+        <div class="form-group inline">
+          <input id="technicalskillInput" type="text" placeholder="e.g., JavaScript">
+          <button id="addTechnicalSkill" class="btn-secondary">Add Skill</button>
+        </div>
+        <div class="error" id="technicalskillsError"></div>
+
+        <div id="technicalskillsContainer" class="skills-container"></div>
+        <br>
+
+        <h2 class="section-title">Soft Skills</h2>
+        <p class="question-subtitle">Add your soft skills.</p>
+
+        <div class="form-group inline">
+          <input id="softskillInput" type="text" placeholder="e.g., Team work">
+          <button id="addSoftSkill" class="btn-secondary">Add Skill</button>
+        </div>
+        <div class="error" id="softskillsError"></div>
+
+        <div id="softskillsContainer" class="skills-container"></div>
+        <br>
+
+        <button class="btn-primary back" data-back="page6">← Back</button>
+        <button class="btn-primary next" data-next="page8">Next →</button>
+      </section>
+
+      <section class="page" id="page8">
+        <h2 class="section-title">Languages</h2>
+        <p class="question-subtitle">Add languages you speak.</p>
+
+        <div class="form-group">
+          <label>Language</label>
+          <input id="langName" type="text" placeholder="e.g., English">
+        </div>
+
+        <div class="form-group">
+          <label>Proficiency</label>
+          <select id="langLevel">
+            <option value="">Select Level</option>
+            <option>Beginner</option>
+            <option>Intermediate</option>
+            <option>Advanced</option>
+            <option>Fluent</option>
+            <option>Native</option>
+          </select>
+        </div>
+
+        <button id="addLanguage" class="btn-secondary">Add Language</button>
+        <div class="error" id="languagesError"></div>
+
+        <div id="languagesContainer"></div>
+        <br>
+
+        <button class="btn-primary back" data-back="page7">← Back</button>
+        <button class="btn-primary next" data-next="page9">Next →</button>
+      </section>
+
+      <section class="page" id="page9">
+        <h2 class="section-title">Submit Your CV</h2>
+        <p class="question-subtitle">You're all done! Review your information then submit.</p>
+
+        <button id="submitBtn" class="btn-primary">Submit CV</button>
+        <br><br>
+        <button class="btn-primary back" data-back="page8">← Back</button>
+      </section>
+
+    </div>
+
+  </div>
+
+
+  <div id="loadingOverlay" class="loading-overlay">
+  
+    <div class="loading-header">
+      <div class="loading-header-content">
+        my<span class="red">perfect</span>CV
+      </div>
+    </div>
+
+    <div class="loading-content-wrapper">
+      <div class="loading-content">
+        <img 
+          src="https://api.dicebear.com/9.x/avataaars/svg?seed=Abdo&backgroundColor=b6e3f4&mouth=smile&eyebrows=default" 
+          alt="Smiling Avatar" 
+          class="loading-avatar"
+        >
+        
+        <h3 class="loading-message">
+          Let’s create a resume for the<br>
+          <span class="highlight-text" id="loadingJobTitle">Awesome Professional</span><br>
+          in you!
+        </h3>
+
+        <div class="loading-bar-container">
+          <div class="loading-bar-fill"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="imageModal" class="image-modal">
+    <span class="close-modal">&times;</span>
+    <img class="modal-content" id="modalImage">
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
