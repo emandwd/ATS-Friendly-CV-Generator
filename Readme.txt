@@ -5,11 +5,10 @@ Readme File – CV Maker Using ATS System Web App Project
 Course: 25CPE4203 – Software Engineering  
 Project: CV Maker Using ATS System Web App  
 Developers: 
-	1. Malak Mohamed Saad 257719 (A3)
-	2. Eman Mohamed Dawood 254065 (A3)
-	3. Fares Haitham 251430 (A1)
-	4. Abdallah Mamdouh 252798 (A1)
-	5. Omar Mahmoud 257749 (A1)
+	1. Eman Mohamed Dawood (Backend)
+	2. Malak Mohamed Saad (Backend)
+	3. Fares Haitham (Frontend)
+	4. Abdallah Mamdouh (Frontend)
 
 =====================================================
 1. Running the System Online (Hosted Version)
@@ -40,7 +39,6 @@ No installation, setup, or backend running is required when using the hosted ver
   - flask-cors
   - python-docx
   - openai
-  - json, tempfile, shutil (built-in)
 • Model Used: gpt-5-nano (via OpenAI API)
 
 =====================================================
@@ -123,4 +121,5 @@ Frontend files/
 5) Frontend:
    • Auto-downloads DOCX  
    • Shows success message  
+
    • Clears all stored data in local storage
